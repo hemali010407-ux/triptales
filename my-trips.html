@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Saved Trips — TripTales | Your Journey, Your Story</title>
+  <meta name="description" content="View, manage, print, and export your saved Indian travel itineraries in TripTales without needing any account.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="TripTales Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">TripTales<span>.</span></span>
+          <span class="brand-tagline">Your Journey, Your Story</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Explore</a></li>
+          <li><a href="packages.html" class="nav-link">Packages</a></li>
+          <li><a href="transport.html" class="nav-link">Transport</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li>
+            <a href="my-trips.html" class="nav-link active">
+              My Trips
+              <span class="nav-badge saved-trips-count" style="display:none;">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#planner" class="btn btn-primary btn-sm">Plan Trip</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section style="background: linear-gradient(135deg, #09203f 0%, #1e425e 100%); color:white; padding: 48px 0 40px;">
+    <div class="container text-center" style="text-align: center;">
+      <span class="badge badge-gold" style="margin-bottom: 12px;">Local Browser Vault</span>
+      <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 8px;">My Saved Trips & Itineraries</h1>
+      <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
+        Your planned journeys are stored locally on your device in browser localStorage. No sign-up, passwords, or cloud data tracking required.
+      </p>
+    </div>
+  </section>
+
+  <!-- My Trips Section -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- Top Actions Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 28px;">
+        <div>
+          <h2 style="font-size: 1.6rem; font-weight: 800; color: #1e293b;">
+            Saved Itineraries (<span id="tripsCountHeading">0</span>)
+          </h2>
+          <p style="color: #64748b; font-size: 0.9rem;">
+            Click on any trip to inspect the day-by-day plan or export it for your journey.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <a href="index.html#planner" class="btn btn-primary btn-sm">+ Plan New Trip</a>
+          <button id="clearAllTripsBtn" class="btn btn-outline btn-sm" style="display: none;">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <!-- Saved Trips Grid -->
+      <div id="savedTripsGrid" class="saved-trips-grid">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyTripsState" class="empty-trips-view" style="display: none;">
+        <div class="empty-trips-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        </div>
+        <h3>No Saved Trips Yet</h3>
+        <p>You haven't generated or saved any trip itineraries yet. Head over to our smart trip planner to design your first custom India getaway!</p>
+        <a href="index.html#planner" class="btn btn-primary btn-lg">Plan Your First Trip Now ➔</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">TripTales<span>.</span></span>
+              <span class="brand-tagline">Your Journey, Your Story</span>
+            </div>
+          </a>
+          <p>
+            Your journeys, safely recorded and easy to print or export. Designed with client-side privacy.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html">All Indian Destinations</a></li>
+            <li><a href="packages.html">Curated Tour Packages</a></li>
+            <li><a href="transport.html">Transport Route Hub</a></li>
+            <li><a href="hotels.html">Hotel Stays Directory</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Features</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#planner">AI Travel Assistant</a></li>
+            <li><a href="index.html#planner">Budget Feasibility Estimator</a></li>
+            <li><a href="#" onclick="window.print(); return false;">Print View</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Official Transport</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.irctc.co.in" target="_blank" rel="noopener">IRCTC Rail Ticket Booking ↗</a></li>
+            <li><a href="https://gsrtc.in" target="_blank" rel="noopener">GSRTC Gujarat Roadways ↗</a></li>
+            <li><a href="https://ksrtc.in" target="_blank" rel="noopener">KSRTC Karnataka Roadways ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>TripTales</strong>. Tagline: <em>Your Journey, Your Story</em>. All rights reserved.
+        </div>
+        <div>
+          <span>Privacy note: Saved trip itineraries are stored exclusively in your local web browser.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Detailed Saved Trip Modal Overlay -->
+  <div id="tripDetailModal" class="modal-overlay">
+    <div class="modal-container" style="max-width: 860px;">
+      <button class="modal-close-btn" id="closeTripModalBtn" aria-label="Close modal">✕</button>
+      <div id="tripModalContent" class="modal-content-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('savedTripsGrid');
+      const emptyState = document.getElementById('emptyTripsState');
+      const countHeading = document.getElementById('tripsCountHeading');
+      const clearAllBtn = document.getElementById('clearAllTripsBtn');
+
+      function loadTrips() {
+        try {
+          const raw = localStorage.getItem(window.TripTales.savedTripsKey);
+          return raw ? JSON.parse(raw) : [];
+        } catch (e) {
+          console.error(e);
+          return [];
+        }
+      }
+
+      function renderTrips() {
+        const trips = loadTrips();
+        countHeading.textContent = trips.length;
+
+        if (trips.length === 0) {
+          grid.innerHTML = '';
+          emptyState.style.display = 'block';
+          clearAllBtn.style.display = 'none';
+          return;
+        }
+
+        emptyState.style.display = 'none';
+        clearAllBtn.style.display = 'inline-block';
+
+        grid.innerHTML = trips.map(trip => {
+          const formattedDate = new Date(trip.savedAt).toLocaleDateString('en-IN', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+          });
+
+          return `
+            <div class="saved-trip-card" data-trip-id="${trip.id}">
+              <div class="saved-trip-header">
+                <div>
+                  <span class="badge badge-primary">Saved on ${formattedDate}</span>
+                </div>
+                <button class="btn btn-outline btn-sm" style="color:#ef4444; border-color:#ef4444; padding:2px 8px;" onclick="deleteTrip('${trip.id}')" title="Delete Trip">
+                  🗑️ Delete
+                </button>
+              </div>
+
+              <div class="saved-trip-body">
+                <div class="saved-trip-destination">${trip.destinationName}</div>
+                <div class="saved-trip-meta">
+                  <span>📍 State: <strong>${trip.state || 'India'}</strong></span>
+                  <span>⏱️ Duration: <strong>${trip.days} Days</strong> • Travellers: <strong>${trip.travelers}</strong></span>
+                  <span>🚀 From: <strong>${trip.origin || 'Custom Origin'}</strong> • Style: <strong>${trip.preference || 'Balanced'}</strong></span>
+                </div>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px; margin-bottom:12px;">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                    <span style="font-size:0.82rem; color:#64748b;">Budget / Person:</span>
+                    <strong style="color:#0f4c81;">${formatRupee(trip.budgetPerPerson)}</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between;">
+                    <span style="font-size:0.82rem; color:#64748b;">Est. Group Total:</span>
+                    <strong style="color:#1e293b;">${formatRupee(trip.estimatedTotal)}</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="saved-trip-actions">
+                <button class="btn btn-navy btn-sm" style="flex:1;" onclick="viewTripDetail('${trip.id}')">
+                  View Full Schedule
+                </button>
+                <button class="btn btn-outline btn-sm" onclick="exportTripJson('${trip.id}')" title="Export JSON">
+                  📥 Export
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      window.deleteTrip = function(tripId) {
+        if (!confirm('Are you sure you want to delete this saved itinerary?')) return;
+        let trips = loadTrips();
+        trips = trips.filter(t => t.id !== tripId);
+        localStorage.setItem(window.TripTales.savedTripsKey, JSON.stringify(trips));
+        updateSavedTripsBadge();
+        showToast('Trip itinerary deleted.', 'info');
+        renderTrips();
+      };
+
+      clearAllBtn.addEventListener('click', () => {
+        if (!confirm('Delete all saved trips from this device?')) return;
+        localStorage.removeItem(window.TripTales.savedTripsKey);
+        updateSavedTripsBadge();
+        showToast('All saved trips cleared.', 'info');
+        renderTrips();
+      });
+
+      window.viewTripDetail = function(tripId) {
+        const trips = loadTrips();
+        const trip = trips.find(t => t.id === tripId);
+        if (!trip) return;
+
+        const modal = document.getElementById('tripDetailModal');
+        const content = document.getElementById('tripModalContent');
+
+        const scheduleHtml = (trip.schedule || []).map(day => `
+          <div style="margin-bottom:16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:14px 18px;">
+            <div style="font-weight:700; color:#0f4c81; font-size:1.05rem; margin-bottom:6px;">
+              ${day.title}
+            </div>
+            <ul style="padding-left:18px; margin:0; font-size:0.9rem; color:#334155;">
+              ${(day.activities || []).map(act => `<li style="margin-bottom:4px;">${act}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('');
+
+        const breakdown = trip.breakdown || {};
+
+        content.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; border-bottom:1px solid #e2e8f0; padding-bottom:14px;">
+            <div>
+              <span class="badge badge-primary">${trip.days} Days Trip</span>
+              <h2 style="font-size:1.85rem; font-weight:800; color:#1e293b; margin:6px 0 2px;">
+                ${trip.destinationName} (${trip.state})
+              </h2>
+              <div style="color:#64748b; font-size:0.9rem;">
+                From: ${trip.origin} • ${trip.travelers} Travellers • ${trip.preference} Pace
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:0.75rem; color:#64748b; text-transform:uppercase; font-weight:700;">Est. Group Cost</div>
+              <div style="font-size:1.4rem; font-weight:800; color:#0f4c81;">${formatRupee(trip.estimatedTotal)}</div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; background:#f1f5f9; padding:14px; border-radius:12px; margin-bottom:20px; text-align:center;">
+            <div>
+              <div style="font-size:0.7rem; color:#64748b; text-transform:uppercase; font-weight:700;">Stay</div>
+              <div style="font-weight:800; color:#1e293b;">${formatRupee(breakdown.accommodation || 0)}</div>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; color:#64748b; text-transform:uppercase; font-weight:700;">Transport</div>
+              <div style="font-weight:800; color:#1e293b;">${formatRupee(breakdown.transport || 0)}</div>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; color:#64748b; text-transform:uppercase; font-weight:700;">Food</div>
+              <div style="font-weight:800; color:#1e293b;">${formatRupee(breakdown.food || 0)}</div>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; color:#64748b; text-transform:uppercase; font-weight:700;">Sightseeing</div>
+              <div style="font-weight:800; color:#1e293b;">${formatRupee(breakdown.sightseeing || 0)}</div>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; color:#64748b; text-transform:uppercase; font-weight:700;">Buffer</div>
+              <div style="font-weight:800; color:#1e293b;">${formatRupee(breakdown.misc || 0)}</div>
+            </div>
+          </div>
+
+          <h4 style="font-size:1.2rem; font-weight:800; color:#0f4c81; margin-bottom:14px;">Day-by-Day Schedule</h4>
+          ${scheduleHtml}
+
+          <div style="display:flex; justify-content:flex-end; gap:10px; border-top:1px solid #e2e8f0; padding-top:16px; margin-top:20px;">
+            <button class="btn btn-navy btn-sm" onclick="window.print()">🖨️ Print / Save PDF</button>
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('tripDetailModal').classList.remove('active')">Close</button>
+          </div>
+        `;
+
+        modal.classList.add('active');
+      };
+
+      window.exportTripJson = function(tripId) {
+        const trips = loadTrips();
+        const trip = trips.find(t => t.id === tripId);
+        if (!trip) return;
+
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(trip, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", `TripTales_${trip.destinationName}_Itinerary.json`);
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+        showToast('Itinerary exported as JSON file!', 'success');
+      };
+
+      const closeBtn = document.getElementById('closeTripModalBtn');
+      if (closeBtn) {
+        closeBtn.onclick = () => document.getElementById('tripDetailModal').classList.remove('active');
+      }
+
+      renderTrips();
+    });
+  </script>
+</body>
+</html>

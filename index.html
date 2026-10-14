@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripTales — Your Journey, Your Story | Explore India</title>
+  <meta name="description" content="Discover destinations, plan your perfect getaway, and create memories within your budget across all Indian states with TripTales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="TripTales Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">TripTales<span>.</span></span>
+          <span class="brand-tagline">Your Journey, Your Story</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Explore</a></li>
+          <li><a href="packages.html" class="nav-link">Packages</a></li>
+          <li><a href="transport.html" class="nav-link">Transport</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li>
+            <a href="my-trips.html" class="nav-link">
+              My Trips
+              <span class="nav-badge saved-trips-count" style="display:none;">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#planner" class="btn btn-primary btn-sm">Plan Trip</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-pill">
+        <span>✨ All-India Smart Travel Planner</span>
+      </div>
+      <h1 class="hero-title">TripTales</h1>
+      <span class="hero-tagline">Your Journey, Your Story</span>
+      <p class="hero-subtitle">
+        Discover destinations, plan your perfect getaway, and create memories within your budget.
+      </p>
+      <div class="hero-buttons">
+        <a href="#planner" class="btn btn-primary btn-lg">Plan Your Trip</a>
+        <a href="destinations.html" class="btn btn-white btn-lg" id="heroExploreBtn">Explore Destinations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MakeMyTrip Style Quick Search Widget -->
+  <div class="container search-widget-container">
+    <div class="search-card">
+      <div class="search-tabs">
+        <button class="search-tab-btn active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Trip Planner Search
+        </button>
+        <a href="transport.html" class="search-tab-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Transport Routes
+        </a>
+        <a href="hotels.html" class="search-tab-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          Hotels & Stays
+        </a>
+        <a href="packages.html" class="search-tab-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          Curated Packages
+        </a>
+      </div>
+
+      <form id="heroSearchForm">
+        <div class="search-grid">
+          <div class="search-field">
+            <label for="heroOrigin">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Starting City
+            </label>
+            <input type="text" id="heroOrigin" list="citiesList" placeholder="e.g. Ahmedabad, Delhi, Mumbai" value="Ahmedabad">
+          </div>
+
+          <div class="search-field">
+            <label for="heroDestination">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg>
+              Destination
+            </label>
+            <input type="text" id="heroDestination" list="destinationList" placeholder="e.g. Goa, Manali, Munnar" required>
+          </div>
+
+          <div class="search-field">
+            <label for="heroDeparture">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Departure Date
+            </label>
+            <input type="date" id="heroDeparture">
+          </div>
+
+          <div class="search-field">
+            <label for="heroReturn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Return Date
+            </label>
+            <input type="date" id="heroReturn">
+          </div>
+
+          <div class="search-field">
+            <label for="heroTravelers">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Travellers
+            </label>
+            <select id="heroTravelers">
+              <option value="1">1 Person (Solo)</option>
+              <option value="2" selected>2 Persons (Couple)</option>
+              <option value="3">3 Persons</option>
+              <option value="4">4 Persons (Family/Friends)</option>
+              <option value="5">5 Persons (Group)</option>
+              <option value="6">6+ Persons</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="heroBudget">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Budget / Person (₹)
+            </label>
+            <input type="number" id="heroBudget" min="1000" step="500" placeholder="e.g. 7000" value="7000">
+          </div>
+
+          <div class="search-actions">
+            <button type="submit" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              Plan My Trip
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Datalists for quick autocomplete -->
+  <datalist id="citiesList">
+    <option value="Ahmedabad"></option>
+    <option value="Delhi"></option>
+    <option value="Mumbai"></option>
+    <option value="Bengaluru"></option>
+    <option value="Pune"></option>
+    <option value="Kolkata"></option>
+    <option value="Chennai"></option>
+    <option value="Hyderabad"></option>
+    <option value="Jaipur"></option>
+    <option value="Lucknow"></option>
+    <option value="Chandigarh"></option>
+    <option value="Kochi"></option>
+  </datalist>
+
+  <datalist id="destinationList">
+    <option value="Manali">Himachal Pradesh</option>
+    <option value="Shimla">Himachal Pradesh</option>
+    <option value="Goa">Goa</option>
+    <option value="Jaipur">Rajasthan</option>
+    <option value="Udaipur">Rajasthan</option>
+    <option value="Jaisalmer">Rajasthan</option>
+    <option value="Munnar">Kerala</option>
+    <option value="Alleppey">Kerala</option>
+    <option value="Ooty">Tamil Nadu</option>
+    <option value="Coorg">Karnataka</option>
+    <option value="Hampi">Karnataka</option>
+    <option value="Varanasi">Uttar Pradesh</option>
+    <option value="Agra">Uttar Pradesh</option>
+    <option value="Srinagar">Jammu & Kashmir</option>
+    <option value="Leh-Ladakh">Ladakh</option>
+    <option value="Rishikesh">Uttarakhand</option>
+    <option value="Kutch">Gujarat</option>
+    <option value="Dwarka">Gujarat</option>
+    <option value="Darjeeling">West Bengal</option>
+    <option value="Gangtok">Sikkim</option>
+    <option value="Shillong">Meghalaya</option>
+    <option value="Cherrapunji">Meghalaya</option>
+    <option value="Tawang">Arunachal Pradesh</option>
+    <option value="Puri">Odisha</option>
+    <option value="Andaman">Andaman & Nicobar</option>
+    <option value="Lakshadweep">Lakshadweep</option>
+  </datalist>
+
+  <!-- Popular Destinations Showcase Section -->
+  <section class="section" id="popular">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag">Pan-India Wonders</span>
+          <h2 class="section-title">Popular All-India Destinations</h2>
+          <p class="section-desc">From snowbound Himalayan ridges to sunlit tropical coasts and living heritage citadels.</p>
+        </div>
+        <a href="destinations.html" class="btn btn-outline btn-sm">View All Destinations ➔</a>
+      </div>
+
+      <!-- Quick category filter pills -->
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">🌟 All Highlights</button>
+        <button class="filter-pill" data-filter="Mountains">🏔️ Mountains</button>
+        <button class="filter-pill" data-filter="Beaches">🏖️ Beaches</button>
+        <button class="filter-pill" data-filter="Heritage">🏰 Heritage</button>
+        <button class="filter-pill" data-filter="Nature">🌿 Nature</button>
+        <button class="filter-pill" data-filter="Spiritual">🛕 Spiritual</button>
+        <button class="filter-pill" data-filter="Adventure">🧗 Adventure</button>
+      </div>
+
+      <div class="destination-grid" id="homeDestinationsGrid">
+        <!-- Rendered dynamically by script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Travel Assistant & Personalised Planner Section -->
+  <section class="section section-alt" id="planner">
+    <div class="container">
+      <div class="planner-showcase">
+        <div class="planner-split">
+          <div class="planner-intro">
+            <span class="badge badge-gold" style="margin-bottom:12px;">TripTales Intelligent Engine</span>
+            <h2>AI-Powered Trip Assistant & Custom Itinerary Maker</h2>
+            <p>
+              Tell our smart assistant what you're dreaming of, or use our interactive planner to generate realistic day-by-day itineraries, exact cost breakdowns, and budget checks.
+            </p>
+
+            <ul class="ai-feature-list">
+              <li class="ai-feature-item">
+                <span class="ai-feature-icon">✓</span>
+                <span>All-India attractions tailored to your trip duration.</span>
+              </li>
+              <li class="ai-feature-item">
+                <span class="ai-feature-icon">✓</span>
+                <span>Transparent budget feasibility checks before you travel.</span>
+              </li>
+              <li class="ai-feature-item">
+                <span class="ai-feature-icon">✓</span>
+                <span>Save directly to your browser without creating any account.</span>
+              </li>
+            </ul>
+
+            <div style="font-size:0.8rem; color:#94a3b8; border-top:1px solid rgba(255,255,255,0.15); padding-top:14px;">
+              *Smart client-side planner using authentic Indian regional cost models. Ready for backend AI integration.
+            </div>
+          </div>
+
+          <!-- AI Chat Interface -->
+          <div class="ai-chat-box">
+            <div class="chat-header">
+              <div class="chat-bot-info">
+                <div class="chat-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                </div>
+                <div>
+                  <div class="chat-bot-name">TripTales AI Guide</div>
+                  <div class="chat-bot-status">Active & Ready</div>
+                </div>
+              </div>
+              <span class="badge badge-teal" style="font-size:0.7rem;">Browser Assistant</span>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+              <div class="chat-msg chat-msg-bot">
+                Namaste! 🙏 I am your TripTales smart travel assistant. Where would you like to travel in India?
+                <br><br>
+                Try typing: <em>"Plan a 4-day Goa trip from Ahmedabad for 5 people within ₹7,000 per person."</em> or click one of the quick prompts below!
+              </div>
+            </div>
+
+            <div class="chat-suggestions">
+              <button class="suggestion-chip" data-prompt="Plan a 4-day Goa trip from Ahmedabad for 5 people within ₹7,000 per person.">
+                🏖️ 4-day Goa from Ahmedabad (₹7k)
+              </button>
+              <button class="suggestion-chip" data-prompt="Plan a 5-day Manali snow trip from Delhi for 2 people within ₹8,000 per person.">
+                🏔️ 5-day Manali from Delhi (₹8k)
+              </button>
+              <button class="suggestion-chip" data-prompt="Plan a 3-day spiritual Varanasi trip from Kolkata for 2 people within ₹5,000 per person.">
+                🛕 3-day Varanasi (₹5k)
+              </button>
+              <button class="suggestion-chip" data-prompt="Plan a 4-day Kerala Munnar getaway for 2 people within ₹12,000 per person.">
+                🌿 4-day Munnar Kerala
+              </button>
+            </div>
+
+            <form class="chat-input-row" id="aiChatForm">
+              <input type="text" id="aiChatInput" placeholder="Ask e.g. 'Plan 4 days in Jaipur for 2 people under ₹6000'..." required>
+              <button type="submit" class="btn btn-primary btn-sm" aria-label="Send query">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Personalised Planner Form -->
+      <div class="planner-form-card">
+        <div style="margin-bottom:24px;">
+          <span class="badge badge-primary">Form Mode</span>
+          <h3 style="font-size:1.6rem; font-weight:800; color:#1e293b; margin-top:6px;">
+            Personalise Every Detail of Your Trip
+          </h3>
+          <p style="color:#64748b; font-size:0.95rem;">
+            Customise your days, group size, origin city, and budget to calculate realistic expenses and generate an itinerary.
+          </p>
+        </div>
+
+        <form id="plannerForm">
+          <div class="form-grid-planner">
+            <div class="form-group">
+              <label for="plannerOrigin">Starting City</label>
+              <input type="text" id="plannerOrigin" class="form-control" placeholder="e.g. Ahmedabad, Mumbai" value="Ahmedabad">
+            </div>
+
+            <div class="form-group">
+              <label for="plannerDestination">Destination</label>
+              <select id="plannerDestination" class="form-control" required>
+                <option value="">Select Destination...</option>
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="plannerDays">Duration (Days)</label>
+              <input type="number" id="plannerDays" class="form-control" min="1" max="15" value="4" required>
+            </div>
+
+            <div class="form-group">
+              <label for="plannerTravelers">Number of Travellers</label>
+              <input type="number" id="plannerTravelers" class="form-control" min="1" max="25" value="2" required>
+            </div>
+
+            <div class="form-group">
+              <label for="plannerBudget">Budget Per Person (₹)</label>
+              <input type="number" id="plannerBudget" class="form-control" min="1000" step="500" value="8000" required>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:24px;">
+            <label style="margin-bottom:8px;">Travel Style & Pace</label>
+            <div class="preference-pills">
+              <button type="button" class="pref-btn active" data-pref="Balanced">⚖️ Balanced</button>
+              <button type="button" class="pref-btn" data-pref="Relaxed">🧘 Relaxed & Leisure</button>
+              <button type="button" class="pref-btn" data-pref="Adventure">🎒 Action & Adventure</button>
+              <button type="button" class="pref-btn" data-pref="Luxury">✨ Comfort & Luxury</button>
+              <button type="button" class="pref-btn" data-pref="Budget">💰 Economy / Backpacker</button>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end;">
+            <button type="submit" class="btn btn-primary btn-lg">
+              Generate Detailed Itinerary ➔
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Itinerary Results Section (Rendered dynamically) -->
+      <div id="itineraryResultSection" style="display:none;"></div>
+    </div>
+  </section>
+
+  <!-- Trending Curated Packages Teaser -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag">Handcrafted Packages</span>
+          <h2 class="section-title">Trending India Tour Packages</h2>
+          <p class="section-desc">Popular pre-calculated travel circuits designed for families, couples, and solo voyagers.</p>
+        </div>
+        <a href="packages.html" class="btn btn-outline btn-sm">View All Packages ➔</a>
+      </div>
+
+      <div class="destination-grid">
+        <!-- Package 1: Golden Triangle -->
+        <article class="package-card">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80" alt="Royal Rajasthan & Golden Triangle" loading="lazy">
+            <span class="package-duration-pill">6 Days / 5 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-gold" style="align-self:flex-start; margin-bottom:8px;">Heritage Circuit</span>
+            <h3 class="package-title">Royal Golden Triangle</h3>
+            <p class="package-subtitle">Delhi • Agra (Taj Mahal) • Jaipur Pink City</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ 3-Star Hotels</span>
+              <span class="inclusion-tag">✓ AC Transfers</span>
+              <span class="inclusion-tag">✓ Breakfast Included</span>
+              <span class="inclusion-tag">✓ Monument Guide</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From</span>
+                <span class="package-price-val">₹14,999 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="packages.html" class="btn btn-primary btn-sm">View Details</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 2: Kerala Serenity -->
+        <article class="package-card">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80" alt="Kerala Backwaters & Tea Gardens" loading="lazy">
+            <span class="package-duration-pill">5 Days / 4 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-teal" style="align-self:flex-start; margin-bottom:8px;">Nature & Backwaters</span>
+            <h3 class="package-title">Kerala Serenity Trail</h3>
+            <p class="package-subtitle">Kochi • Munnar Hills • Alleppey Houseboat</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Houseboat Night</span>
+              <span class="inclusion-tag">✓ Tea Estate Tour</span>
+              <span class="inclusion-tag">✓ Private Vehicle</span>
+              <span class="inclusion-tag">✓ All Meals on Boat</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From</span>
+                <span class="package-price-val">₹16,499 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="packages.html" class="btn btn-primary btn-sm">View Details</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 3: Himalayan Manali Escapes -->
+        <article class="package-card">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" alt="Himachal Snow & Valley Escape" loading="lazy">
+            <span class="package-duration-pill">5 Days / 4 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-primary" style="align-self:flex-start; margin-bottom:8px;">Mountain Adventure</span>
+            <h3 class="package-title">Manali Snow & Valleys</h3>
+            <p class="package-subtitle">Solang Valley • Atal Tunnel • Old Manali</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Volvo Transfers</span>
+              <span class="inclusion-tag">✓ Resort Stay</span>
+              <span class="inclusion-tag">✓ Daily Dinner</span>
+              <span class="inclusion-tag">✓ Solang Excursion</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From</span>
+                <span class="package-price-val">₹10,999 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="packages.html" class="btn btn-primary btn-sm">View Details</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Official Travel Services Banner -->
+  <section class="section section-alt" style="padding:48px 0;">
+    <div class="container">
+      <div style="background:white; border-radius:16px; padding:32px; border:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom:8px;">Verified Official Portals</span>
+          <h3 style="font-size:1.4rem; font-weight:800; color:#1e293b;">Official Government Transport & Tourism Links</h3>
+          <p style="color:#64748b; font-size:0.92rem; margin-top:4px;">
+            Book official Indian Railways, state road transports (GSRTC, KSRTC, MSRTC, HRTC), and state tourism boards directly.
+          </p>
+        </div>
+        <div style="display:flex; gap:12px;">
+          <a href="transport.html" class="btn btn-navy">Open Transport Hub ➔</a>
+          <a href="https://www.irctc.co.in" target="_blank" rel="noopener noreferrer" class="btn btn-outline">IRCTC Portal ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">TripTales<span>.</span></span>
+              <span class="brand-tagline">Your Journey, Your Story</span>
+            </div>
+          </a>
+          <p>
+            TripTales is your modern, all-India travel planning companion. Empowering travellers to explore every state and union territory within their personal budget.
+          </p>
+          <div style="font-size:0.82rem; color:#94a3b8;">
+            No backend required • Powered by HTML5, CSS3, JavaScript & Local JSON.
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Explore India</h4>
+          <ul class="footer-links">
+            <li><a href="destinations.html?category=Mountains">Himalayan Peaks</a></li>
+            <li><a href="destinations.html?category=Beaches">Beaches & Islands</a></li>
+            <li><a href="destinations.html?category=Heritage">Royal Heritage & Forts</a></li>
+            <li><a href="destinations.html?category=Spiritual">Spiritual Confluences</a></li>
+            <li><a href="destinations.html?region=North-East">North-East Wonders</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Travel Tools</h4>
+          <ul class="footer-links">
+            <li><a href="#planner">AI Travel Assistant</a></li>
+            <li><a href="#planner">Budget Feasibility Calculator</a></li>
+            <li><a href="transport.html">Transport Route Hub</a></li>
+            <li><a href="hotels.html">Hotel Stays Directory</a></li>
+            <li><a href="my-trips.html">Saved Itineraries (My Trips)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Official Transport</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.irctc.co.in" target="_blank" rel="noopener">IRCTC Rail Ticket Booking ↗</a></li>
+            <li><a href="https://gsrtc.in" target="_blank" rel="noopener">GSRTC Gujarat State Bus ↗</a></li>
+            <li><a href="https://ksrtc.in" target="_blank" rel="noopener">KSRTC Karnataka State Bus ↗</a></li>
+            <li><a href="https://msrtc.maharashtra.gov.in" target="_blank" rel="noopener">MSRTC Maharashtra Bus ↗</a></li>
+            <li><a href="https://hrtchp.com" target="_blank" rel="noopener">HRTC Himachal Roadways ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>TripTales</strong>. Tagline: <em>Your Journey, Your Story</em>. All rights reserved.
+        </div>
+        <div>
+          <span>Disclaimer: All pricing figures and travel budgets are sample estimates, not live bookings.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/planner.js"></script>
+  <script>
+    // Homepage Destination Showcase Loader
+    document.addEventListener('DOMContentLoaded', async () => {
+      const destinations = await loadDestinations();
+      const grid = document.getElementById('homeDestinationsGrid');
+      if (!grid) return;
+
+      function renderHomeCards(category = 'all') {
+        const filtered = category === 'all'
+          ? destinations.slice(0, 8)
+          : destinations.filter(d => d.category.toLowerCase() === category.toLowerCase()).slice(0, 8);
+
+        grid.innerHTML = filtered.map(dest => `
+          <article class="destination-card" data-id="${dest.id}">
+            <div class="card-image-wrap">
+              <img src="${dest.image}" alt="${dest.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=800&q=80'">
+              <div class="card-badge-top">
+                <span class="badge badge-primary">${dest.category}</span>
+              </div>
+              <div class="card-region-badge">${dest.region} India</div>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="card-title">${dest.name}</h3>
+                <span class="card-state">${dest.state}</span>
+              </div>
+              <p class="card-tagline">${dest.tagline}</p>
+              <div class="card-details-row">
+                <div class="card-duration">⏱️ ${dest.suggestedDuration}</div>
+                <div class="card-budget">
+                  <span class="card-budget-label">Est. Daily</span>
+                  <span class="card-budget-val">${formatRupee(dest.estimatedDailyBudget?.budget || 1500)}</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-outline btn-sm" onclick="openDestinationModal('${dest.id}')">Explore</button>
+                <a href="#planner" onclick="prefillPlannerWithDestination('${dest.id}')" class="btn btn-primary btn-sm">Plan Trip</a>
+              </div>
+            </div>
+          </article>
+        `).join('');
+      }
+
+      renderHomeCards('all');
+
+      // Home category pills
+      const filterPills = document.querySelectorAll('.filter-pill');
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const filter = pill.getAttribute('data-filter');
+          renderHomeCards(filter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

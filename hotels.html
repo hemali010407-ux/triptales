@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotels & Stays Directory — TripTales | Your Journey, Your Story</title>
+  <meta name="description" content="Browse authentic accommodation benchmarks across all Indian destinations. Filter by destination, budget tier, and amenities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="TripTales Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">TripTales<span>.</span></span>
+          <span class="brand-tagline">Your Journey, Your Story</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Explore</a></li>
+          <li><a href="packages.html" class="nav-link">Packages</a></li>
+          <li><a href="transport.html" class="nav-link">Transport</a></li>
+          <li><a href="hotels.html" class="nav-link active">Hotels</a></li>
+          <li>
+            <a href="my-trips.html" class="nav-link">
+              My Trips
+              <span class="nav-badge saved-trips-count" style="display:none;">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#planner" class="btn btn-primary btn-sm">Plan Trip</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section style="background: linear-gradient(135deg, #09203f 0%, #1e425e 100%); color:white; padding: 48px 0 40px;">
+    <div class="container text-center" style="text-align: center;">
+      <span class="badge badge-gold" style="margin-bottom: 12px;">Accommodations & Stays Directory</span>
+      <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 8px;">Find Your Perfect Stay in India</h1>
+      <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
+        From heritage boutique havelis and eco-cottages to luxury palace hotels and social backpacker hostels.
+      </p>
+    </div>
+  </section>
+
+  <!-- Notice Banner -->
+  <div class="container" style="margin-top: 24px;">
+    <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 14px 20px; font-size: 0.88rem; color: #1e40af; display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 1.2rem;">ℹ️</span>
+      <span><strong>Sample Price Estimates:</strong> All hotel listings and nightly tariffs shown are regional estimates intended for transparent budgeting. Always confirm live booking availability and rates directly with hotels or booking providers.</span>
+    </div>
+  </div>
+
+  <!-- Hotels Explorer Section -->
+  <section class="section" style="padding-top: 24px;">
+    <div class="container">
+      
+      <!-- Filter Bar -->
+      <div style="background: white; border-radius: 16px; padding: 22px; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); margin-bottom: 28px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: end;">
+          <div class="search-field">
+            <label for="hotelDestSelect">Select Destination</label>
+            <select id="hotelDestSelect">
+              <option value="All">All Destinations in India</option>
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="hotelTierSelect">Stay Tier & Budget</label>
+            <select id="hotelTierSelect">
+              <option value="All">All Tiers</option>
+              <option value="Budget">Budget & Hostels (₹800 - ₹1,500)</option>
+              <option value="Mid-Range">Mid-Range & Boutique (₹2,000 - ₹4,500)</option>
+              <option value="Luxury">5-Star & Palaces (₹7,000+)</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="hotelSortSelect">Sort By</label>
+            <select id="hotelSortSelect">
+              <option value="rating-desc">Highest Rated First</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Hotel Name (A-Z)</option>
+            </select>
+          </div>
+
+          <div>
+            <button id="resetHotelsBtn" class="btn btn-outline" style="width: 100%;">Reset Filter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hotels List View -->
+      <div id="hotelsList" style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Empty state -->
+      <div id="noHotelsState" class="empty-trips-view" style="display: none;">
+        <h3>No stays found matching these filters</h3>
+        <p>Try selecting a different destination or resetting your budget filters.</p>
+        <button class="btn btn-primary" onclick="document.getElementById('resetHotelsBtn').click()">Reset Filters</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">TripTales<span>.</span></span>
+              <span class="brand-tagline">Your Journey, Your Story</span>
+            </div>
+          </a>
+          <p>
+            TripTales helps you discover and budget accommodations throughout India transparently.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="transport.html">Transport Hub</a></li>
+            <li><a href="my-trips.html">My Saved Trips</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Official Tourism Boards</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.incredibleindia.org" target="_blank" rel="noopener">Incredible India Official ↗</a></li>
+            <li><a href="https://www.keralatourism.org" target="_blank" rel="noopener">Kerala Tourism (KTDC) ↗</a></li>
+            <li><a href="https://www.gujarattourism.com" target="_blank" rel="noopener">Gujarat Tourism (TCGL) ↗</a></li>
+            <li><a href="https://himachaltourism.gov.in" target="_blank" rel="noopener">HPTDC Himachal Tourism ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Rail & Road Portals</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.irctc.co.in" target="_blank" rel="noopener">IRCTC Rail Booking ↗</a></li>
+            <li><a href="https://gsrtc.in" target="_blank" rel="noopener">GSRTC Gujarat Buses ↗</a></li>
+            <li><a href="https://ksrtc.in" target="_blank" rel="noopener">KSRTC Karnataka Buses ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>TripTales</strong>. Tagline: <em>Your Journey, Your Story</em>. All rights reserved.
+        </div>
+        <div>
+          <span>Disclaimer: Hotel tariffs shown are realistic sample estimates for trip budgeting.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const destinations = await loadDestinations();
+      const destSelect = document.getElementById('hotelDestSelect');
+      const tierSelect = document.getElementById('hotelTierSelect');
+      const sortSelect = document.getElementById('hotelSortSelect');
+      const resetBtn = document.getElementById('resetHotelsBtn');
+      const listContainer = document.getElementById('hotelsList');
+      const emptyState = document.getElementById('noHotelsState');
+
+      // Populate destination select
+      destinations.forEach(d => {
+        const opt = document.createElement('option');
+        opt.value = d.id;
+        opt.textContent = `${d.name} (${d.state})`;
+        destSelect.appendChild(opt);
+      });
+
+      // Extract all hotel listings
+      const allHotels = [];
+      destinations.forEach(d => {
+        (d.hotels || []).forEach(h => {
+          allHotels.push({
+            ...h,
+            destId: d.id,
+            destName: d.name,
+            destState: d.state,
+            destImage: d.image
+          });
+        });
+      });
+
+      function renderHotels() {
+        const selectedDest = destSelect.value;
+        const selectedTier = tierSelect.value;
+        const sortBy = sortSelect.value;
+
+        let filtered = allHotels.filter(h => {
+          if (selectedDest !== 'All' && h.destId !== selectedDest) return false;
+          if (selectedTier !== 'All' && h.tier.toLowerCase() !== selectedTier.toLowerCase()) return false;
+          return true;
+        });
+
+        // Sort
+        filtered.sort((a, b) => {
+          if (sortBy === 'rating-desc') return (b.rating || 0) - (a.rating || 0);
+          if (sortBy === 'price-asc') return (a.price || 0) - (b.price || 0);
+          if (sortBy === 'price-desc') return (b.price || 0) - (a.price || 0);
+          if (sortBy === 'name-asc') return a.name.localeCompare(b.name);
+          return 0;
+        });
+
+        if (filtered.length === 0) {
+          listContainer.innerHTML = '';
+          emptyState.style.display = 'block';
+          return;
+        }
+
+        emptyState.style.display = 'none';
+
+        listContainer.innerHTML = filtered.map(h => `
+          <div class="hotel-card">
+            <img src="${h.destImage}" alt="${h.name}" class="hotel-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=600&q=80'">
+            <div class="hotel-info">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                <span class="badge ${h.tier === 'Luxury' ? 'badge-gold' : h.tier === 'Mid-Range' ? 'badge-primary' : 'badge-teal'}">${h.tier}</span>
+                <span class="badge badge-primary">${h.destName}, ${h.destState}</span>
+              </div>
+              <h4>${h.name}</h4>
+              <div class="hotel-rating-row">
+                <span class="rating-badge">★ ${h.rating}</span>
+                <span style="font-size:0.85rem; color:#64748b; font-weight:600;">${h.badge || 'Verified Benchmark'}</span>
+              </div>
+              <div class="hotel-amenities">
+                <span>📶 High-Speed WiFi</span>
+                <span>☕ Daily Breakfast</span>
+                <span>❄️ Air Conditioning</span>
+                <span>🛎️ 24/7 Front Desk</span>
+              </div>
+            </div>
+            <div class="hotel-pricing">
+              <div style="font-size:0.75rem; color:#64748b; text-transform:uppercase; font-weight:700;">Est. Nightly Rate</div>
+              <div style="font-size:1.45rem; font-weight:800; color:#0f4c81;">${formatRupee(h.price)}</div>
+              <div style="font-size:0.75rem; color:#94a3b8; margin-bottom:8px;">*Sample tariff / room</div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <a href="index.html?dest=${encodeURIComponent(h.destId)}#planner" class="btn btn-primary btn-sm">Plan with this Stay</a>
+                <button class="btn btn-outline btn-sm" onclick="openDestinationModal('${h.destId}')">Explore ${h.destName}</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      destSelect.addEventListener('change', renderHotels);
+      tierSelect.addEventListener('change', renderHotels);
+      sortSelect.addEventListener('change', renderHotels);
+      resetBtn.addEventListener('click', () => {
+        destSelect.value = 'All';
+        tierSelect.value = 'All';
+        sortSelect.value = 'rating-desc';
+        renderHotels();
+      });
+
+      renderHotels();
+    });
+  </script>
+</body>
+</html>

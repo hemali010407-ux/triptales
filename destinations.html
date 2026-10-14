@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Destinations — TripTales | Your Journey, Your Story</title>
+  <meta name="description" content="Explore popular and offbeat travel destinations across all Indian states and union territories. Filter by budget, region, duration and category.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="TripTales Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">TripTales<span>.</span></span>
+          <span class="brand-tagline">Your Journey, Your Story</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link active">Explore</a></li>
+          <li><a href="packages.html" class="nav-link">Packages</a></li>
+          <li><a href="transport.html" class="nav-link">Transport</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li>
+            <a href="my-trips.html" class="nav-link">
+              My Trips
+              <span class="nav-badge saved-trips-count" style="display:none;">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#planner" class="btn btn-primary btn-sm">Plan Trip</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section style="background: linear-gradient(135deg, #09203f 0%, #1e425e 100%); color:white; padding: 48px 0 40px;">
+    <div class="container text-center" style="text-align: center;">
+      <span class="badge badge-gold" style="margin-bottom: 12px;">All-India Destination Directory</span>
+      <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 8px;">Explore India Your Way</h1>
+      <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
+        Discover mountains, sunny beaches, royal forts, spiritual sanctums, and serene backwaters spanning every state and union territory.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Controls Section -->
+  <section class="section" style="padding-top: 32px;">
+    <div class="container">
+      
+      <!-- Search & Filters Bar -->
+      <div style="background: white; border-radius: 16px; padding: 24px; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); margin-bottom: 30px;">
+        <!-- Search Input -->
+        <div style="margin-bottom: 20px;">
+          <div class="search-field" style="max-width: 100%;">
+            <label for="destSearchInput">Search Destinations, States, or Attractions</label>
+            <input type="text" id="destSearchInput" placeholder="Type destination (e.g. Manali, Goa, Munnar, Varanasi, Leh, Kutch)..." autofocus>
+          </div>
+        </div>
+
+        <!-- Filter Dropdowns Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 20px;">
+          <div class="search-field">
+            <label for="regionSelect">Region</label>
+            <select id="regionSelect">
+              <option value="All">All Regions</option>
+              <option value="North">North India</option>
+              <option value="South">South India</option>
+              <option value="West">West India</option>
+              <option value="East">East India</option>
+              <option value="North-East">North-East India</option>
+              <option value="Islands">Islands & UTs</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="budgetSelect">Daily Budget / Person</label>
+            <select id="budgetSelect">
+              <option value="All">Any Budget</option>
+              <option value="budget">Budget (< ₹1,500/day)</option>
+              <option value="midRange">Mid-Range (₹1,500 - ₹2,500/day)</option>
+              <option value="luxury">Comfort / Luxury (> ₹2,500/day)</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="durationSelect">Duration</label>
+            <select id="durationSelect">
+              <option value="All">Any Duration</option>
+              <option value="short">Quick Break (1-3 Days)</option>
+              <option value="medium">Standard Trip (4-5 Days)</option>
+              <option value="long">Extended Journey (5+ Days)</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="sortSelect">Sort By</label>
+            <select id="sortSelect">
+              <option value="recommended">Recommended</option>
+              <option value="cost-asc">Cost: Low to High</option>
+              <option value="cost-desc">Cost: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="duration-asc">Duration: Shortest First</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category Pills -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--gray-200); padding-top: 16px;">
+          <div class="filter-pills" style="margin-bottom: 0;">
+            <button class="filter-pill category-filter-btn active" data-category="All">All Themes</button>
+            <button class="filter-pill category-filter-btn" data-category="Mountains">🏔️ Mountains</button>
+            <button class="filter-pill category-filter-btn" data-category="Beaches">🏖️ Beaches</button>
+            <button class="filter-pill category-filter-btn" data-category="Heritage">🏰 Heritage</button>
+            <button class="filter-pill category-filter-btn" data-category="Nature">🌿 Nature</button>
+            <button class="filter-pill category-filter-btn" data-category="Spiritual">🛕 Spiritual</button>
+            <button class="filter-pill category-filter-btn" data-category="Adventure">🧗 Adventure</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span id="destinationsCount" style="font-size: 0.88rem; font-weight: 700; color: var(--gray-600);">
+              Loading destinations...
+            </span>
+            <button id="resetFiltersBtn" class="btn btn-outline btn-sm">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destinations Grid -->
+      <div class="destination-grid" id="destinationsGrid">
+        <!-- Rendered dynamically by destinations.js -->
+      </div>
+
+      <!-- Friendly Empty State -->
+      <div id="noResultsState" class="empty-trips-view" style="display: none;">
+        <div class="empty-trips-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <h3>No matching destinations found</h3>
+        <p>Try clearing your search terms or relaxing the category and budget filters to explore other Indian destinations.</p>
+        <button class="btn btn-primary" onclick="document.getElementById('resetFiltersBtn').click()">Reset All Filters</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">TripTales<span>.</span></span>
+              <span class="brand-tagline">Your Journey, Your Story</span>
+            </div>
+          </a>
+          <p>
+            TripTales is your all-India travel planning platform. Plan authentic, budget-conscious trips across every corner of India.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Top Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="openDestinationModal('goa'); return false;">Goa Beach Getaway</a></li>
+            <li><a href="#" onclick="openDestinationModal('manali'); return false;">Manali Snow Valley</a></li>
+            <li><a href="#" onclick="openDestinationModal('jaipur'); return false;">Jaipur Pink City</a></li>
+            <li><a href="#" onclick="openDestinationModal('munnar'); return false;">Munnar Tea Gardens</a></li>
+            <li><a href="#" onclick="openDestinationModal('varanasi'); return false;">Varanasi Ghats</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Tools & Hubs</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#planner">AI Itinerary Generator</a></li>
+            <li><a href="packages.html">Curated Packages</a></li>
+            <li><a href="transport.html">Transport & Official Routes</a></li>
+            <li><a href="hotels.html">Hotel Price Estimates</a></li>
+            <li><a href="my-trips.html">Saved Trips</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Official Booking</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.irctc.co.in" target="_blank" rel="noopener">IRCTC Railway Tickets ↗</a></li>
+            <li><a href="https://gsrtc.in" target="_blank" rel="noopener">GSRTC Gujarat State Bus ↗</a></li>
+            <li><a href="https://ksrtc.in" target="_blank" rel="noopener">KSRTC Karnataka State Bus ↗</a></li>
+            <li><a href="https://hrtchp.com" target="_blank" rel="noopener">HRTC Himachal Roadways ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>TripTales</strong>. Tagline: <em>Your Journey, Your Story</em>. All rights reserved.
+        </div>
+        <div>
+          <span>Disclaimer: Price estimates are sample benchmarks. Always verify real-time transport and stay rates.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/destinations.js"></script>
+</body>
+</html>

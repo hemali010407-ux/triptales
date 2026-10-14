@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curated Tour Packages — TripTales | Your Journey, Your Story</title>
+  <meta name="description" content="Explore handcrafted all-India tour packages covering Rajasthan, Himachal, Kerala, North-East, Goa, and Andaman with transparent pricing and itinerary highlights.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="TripTales Homepage">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">TripTales<span>.</span></span>
+          <span class="brand-tagline">Your Journey, Your Story</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="destinations.html" class="nav-link">Explore</a></li>
+          <li><a href="packages.html" class="nav-link active">Packages</a></li>
+          <li><a href="transport.html" class="nav-link">Transport</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li>
+            <a href="my-trips.html" class="nav-link">
+              My Trips
+              <span class="nav-badge saved-trips-count" style="display:none;">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#planner" class="btn btn-primary btn-sm">Plan Trip</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section style="background: linear-gradient(135deg, #09203f 0%, #1e425e 100%); color:white; padding: 48px 0 40px;">
+    <div class="container text-center" style="text-align: center;">
+      <span class="badge badge-gold" style="margin-bottom: 12px;">Curated Travel Circuits</span>
+      <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 8px;">Handcrafted All-India Tour Packages</h1>
+      <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
+        Complete ready-to-go travel circuits with transparent sample budgets, day-by-day highlights, and customisation options.
+      </p>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- Filter Tabs -->
+      <div class="filter-pills" style="margin-bottom: 32px;">
+        <button class="filter-pill pkg-filter-btn active" data-pkg-cat="all">🌟 All Packages</button>
+        <button class="filter-pill pkg-filter-btn" data-pkg-cat="heritage">🏰 Heritage & Palaces</button>
+        <button class="filter-pill pkg-filter-btn" data-pkg-cat="mountains">🏔️ Mountain Escapes</button>
+        <button class="filter-pill pkg-filter-btn" data-pkg-cat="beaches">🏖️ Coastal & Islands</button>
+        <button class="filter-pill pkg-filter-btn" data-pkg-cat="nature">🌿 Nature & Backwaters</button>
+        <button class="filter-pill pkg-filter-btn" data-pkg-cat="spiritual">🛕 Sacred & Spiritual</button>
+      </div>
+
+      <!-- Packages Grid -->
+      <div class="destination-grid" id="packagesGrid">
+
+        <!-- Package 1 -->
+        <article class="package-card" data-category="heritage">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80" alt="Royal Golden Triangle" loading="lazy">
+            <span class="package-duration-pill">6 Days / 5 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-gold" style="align-self:flex-start; margin-bottom:8px;">Heritage Classic</span>
+            <h3 class="package-title">Royal Golden Triangle</h3>
+            <p class="package-subtitle">Delhi • Agra (Taj Mahal) • Jaipur Pink City</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ 3-Star Accommodations</span>
+              <span class="inclusion-tag">✓ AC Car Transfers</span>
+              <span class="inclusion-tag">✓ Daily Breakfast</span>
+              <span class="inclusion-tag">✓ Monument Guides</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹14,999 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=jaipur&origin=Delhi&travelers=2&budget=15000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 2 -->
+        <article class="package-card" data-category="nature">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80" alt="Kerala Serenity Trail" loading="lazy">
+            <span class="package-duration-pill">5 Days / 4 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-teal" style="align-self:flex-start; margin-bottom:8px;">Nature & Backwaters</span>
+            <h3 class="package-title">Kerala Serenity Backwaters</h3>
+            <p class="package-subtitle">Kochi • Munnar Hill Station • Alleppey Lake</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Deluxe Houseboat Stay</span>
+              <span class="inclusion-tag">✓ Tea Plantation Safari</span>
+              <span class="inclusion-tag">✓ All Meals on Cruise</span>
+              <span class="inclusion-tag">✓ Private AC Sedan</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹16,499 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=alleppey&origin=Kochi&travelers=2&budget=17000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 3 -->
+        <article class="package-card" data-category="mountains">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" alt="Manali & Solang Snow Trails" loading="lazy">
+            <span class="package-duration-pill">5 Days / 4 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-primary" style="align-self:flex-start; margin-bottom:8px;">Mountain Adventure</span>
+            <h3 class="package-title">Manali Snow & Valley Trails</h3>
+            <p class="package-subtitle">Old Manali • Solang Valley • Atal Tunnel & Sissu</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Delhi Volvo Return</span>
+              <span class="inclusion-tag">✓ 3-Star Resort Stay</span>
+              <span class="inclusion-tag">✓ Breakfast & Dinner</span>
+              <span class="inclusion-tag">✓ Solang Sightseeing</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹10,999 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=manali&origin=Delhi&travelers=2&budget=11000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 4 -->
+        <article class="package-card" data-category="beaches">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80" alt="Goa Sun, Sand & Susegad" loading="lazy">
+            <span class="package-duration-pill">5 Days / 4 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-teal" style="align-self:flex-start; margin-bottom:8px;">Beach & Shacks</span>
+            <h3 class="package-title">Goa Sun, Sand & Susegad</h3>
+            <p class="package-subtitle">Baga • Anjuna • Palolem • Fontainhas Old Latin Quarter</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Beachside Resort</span>
+              <span class="inclusion-tag">✓ Scooter / Car Rental</span>
+              <span class="inclusion-tag">✓ Sunset Boat Cruise</span>
+              <span class="inclusion-tag">✓ Daily Breakfast</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹12,499 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=goa&origin=Mumbai&travelers=2&budget=13000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 5 -->
+        <article class="package-card" data-category="nature">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&w=800&q=80" alt="Meghalaya Clouds & Living Root Bridges" loading="lazy">
+            <span class="package-duration-pill">6 Days / 5 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-primary" style="align-self:flex-start; margin-bottom:8px;">North-East Odyssey</span>
+            <h3 class="package-title">Meghalaya Abode of Clouds</h3>
+            <p class="package-subtitle">Shillong • Cherrapunji • Dawki River • Mawlynnong</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Guwahati Pick & Drop</span>
+              <span class="inclusion-tag">✓ Living Root Bridge Trek</span>
+              <span class="inclusion-tag">✓ Crystal Boat Ride</span>
+              <span class="inclusion-tag">✓ Boutique Homestays</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹18,500 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=shillong&origin=Guwahati&travelers=2&budget=19000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 6 -->
+        <article class="package-card" data-category="beaches">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80" alt="Andaman Island Coral Explorer" loading="lazy">
+            <span class="package-duration-pill">6 Days / 5 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-teal" style="align-self:flex-start; margin-bottom:8px;">Island Escapade</span>
+            <h3 class="package-title">Andaman Coral Island Paradise</h3>
+            <p class="package-subtitle">Port Blair • Havelock (Radhanagar) • Neil Island</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Makruzz Catamaran</span>
+              <span class="inclusion-tag">✓ Beach Resort Stays</span>
+              <span class="inclusion-tag">✓ Snorkeling Session</span>
+              <span class="inclusion-tag">✓ Cellular Jail Light Show</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹24,999 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=andaman&origin=Chennai&travelers=2&budget=25000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 7 -->
+        <article class="package-card" data-category="spiritual">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80" alt="Sacred Ganga Spiritual Circuit" loading="lazy">
+            <span class="package-duration-pill">4 Days / 3 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-secondary" style="align-self:flex-start; margin-bottom:8px;">Spiritual Pilgrimage</span>
+            <h3 class="package-title">Sacred Kashi & Ganga Trail</h3>
+            <p class="package-subtitle">Varanasi Ghats • Sarnath • Kashi Vishwanath</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Ganga Sunrise Boat</span>
+              <span class="inclusion-tag">✓ VIP Temple Darshan Guide</span>
+              <span class="inclusion-tag">✓ Sarnath Day Excursion</span>
+              <span class="inclusion-tag">✓ Pure Veg Dining</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹8,499 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=varanasi&origin=Delhi&travelers=2&budget=9000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Package 8 -->
+        <article class="package-card" data-category="heritage">
+          <div class="package-img-wrap">
+            <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80" alt="Gujarat White Desert Rann Utsav" loading="lazy">
+            <span class="package-duration-pill">4 Days / 3 Nights</span>
+          </div>
+          <div class="package-body">
+            <span class="badge badge-gold" style="align-self:flex-start; margin-bottom:8px;">Desert Carnival</span>
+            <h3 class="package-title">Great Rann of Kutch & Heritage</h3>
+            <p class="package-subtitle">Bhuj • Dhordo White Desert • Kalo Dungar</p>
+            <div class="package-inclusions">
+              <span class="inclusion-tag">✓ Desert Glamping Stay</span>
+              <span class="inclusion-tag">✓ Rann Utsav Cultural Show</span>
+              <span class="inclusion-tag">✓ Kutchi Artisan Villages</span>
+              <span class="inclusion-tag">✓ All Authentic Meals</span>
+            </div>
+            <div class="package-footer">
+              <div class="package-price-wrap">
+                <span class="package-price-label">Starting From (Est.)</span>
+                <span class="package-price-val">₹13,999 <span style="font-size:0.75rem; font-weight:normal; color:#64748b;">/ person</span></span>
+              </div>
+              <a href="index.html?dest=kutch&origin=Ahmedabad&travelers=2&budget=14000#planner" class="btn btn-primary btn-sm">Customize & Plan</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">TripTales<span>.</span></span>
+              <span class="brand-tagline">Your Journey, Your Story</span>
+            </div>
+          </a>
+          <p>
+            TripTales curates the best travel experiences across India with honest sample pricing estimates and day-by-day plans.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Top Packages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?dest=jaipur#planner">Golden Triangle Circuit</a></li>
+            <li><a href="index.html?dest=alleppey#planner">Kerala Backwaters</a></li>
+            <li><a href="index.html?dest=manali#planner">Manali Snow Trails</a></li>
+            <li><a href="index.html?dest=goa#planner">Goa Coastal Vacation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#planner">AI Custom Trip Planner</a></li>
+            <li><a href="destinations.html">Explore 30+ Destinations</a></li>
+            <li><a href="transport.html">Transport Route Hub</a></li>
+            <li><a href="hotels.html">Hotels & Stays</a></li>
+            <li><a href="my-trips.html">Saved Itineraries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Official Transport</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.irctc.co.in" target="_blank" rel="noopener">IRCTC Rail Booking ↗</a></li>
+            <li><a href="https://gsrtc.in" target="_blank" rel="noopener">GSRTC Gujarat Bus ↗</a></li>
+            <li><a href="https://ksrtc.in" target="_blank" rel="noopener">KSRTC Karnataka Bus ↗</a></li>
+            <li><a href="https://hrtchp.com" target="_blank" rel="noopener">HRTC Himachal Bus ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>TripTales</strong>. Tagline: <em>Your Journey, Your Story</em>. All rights reserved.
+        </div>
+        <div>
+          <span>Note: Packages represent sample itineraries with average realistic pricing.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    // Package filter tabs logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.pkg-filter-btn');
+      const cards = document.querySelectorAll('#packagesGrid .package-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const cat = btn.getAttribute('data-pkg-cat');
+          cards.forEach(card => {
+            if (cat === 'all' || card.getAttribute('data-category') === cat) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
